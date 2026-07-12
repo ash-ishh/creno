@@ -1,34 +1,12 @@
-<p align="center">
-  <img src="assets/cerno-banner.svg" alt="Cerno — the internet, distilled to a decision" width="100%">
-</p>
+# Cerno
 
-<h1 align="center">Cerno</h1>
+> **Protect your attention by learning what “high signal” means to you.**
 
-<p align="center"><strong>The judgment layer between the internet and your attention.</strong></p>
-<p align="center"><code>FINITE BRIEFINGS</code> · <code>VISIBLE TASTE</code> · <code>CITED EVIDENCE</code> · <code>NO FEED</code></p>
+Cerno is a personal intelligence system that reads, watches, and listens on your behalf. It learns your durable taste, understands what you are working on right now, and surfaces only the claims, resources, and exact moments worth your attention.
 
-> **Most tools help you consume faster. Cerno decides what deserves to be consumed at all.**
+Most tools help you consume faster. Cerno decides what deserves to be consumed at all.
 
-Cerno reads, watches, and listens on your behalf. It learns your durable taste, understands what you are working on right now, and returns only the claims, resources, and exact moments worth your attention—not another pile of summaries.
-
-<table>
-<tr>
-<td width="50%"><strong>🎯 Knows what matters now</strong><br><sub>Focus Threads separate today's mission from your long-term interests.</sub></td>
-<td width="50%"><strong>🧠 Knows what you already know</strong><br><sub>A personal index makes repetition visible instead of recommending it again.</sub></td>
-</tr>
-<tr>
-<td width="50%"><strong>⏱ Finds the moment, not just the source</strong><br><sub>Jump to the useful passage, claim, or timestamp inside long-form content.</sub></td>
-<td width="50%"><strong>🔎 Shows its work</strong><br><sub>Every selection exposes evidence, provenance, novelty, and the TasteDoc rules used.</sub></td>
-</tr>
-</table>
-
-<p align="center">
-  <img src="assets/cerno-live-briefing.png" alt="Live Cerno finite briefing with an inspectable evidence spine" width="100%">
-  <br>
-  <sub>A live LinkUp + Hermes run published three claims only after exact source passages passed deterministic validation.</sub>
-</p>
-
-The name comes from the Latin *cernere*: **to sift, distinguish, and decide.**
+The name comes from the Latin *cernere*: to sift, distinguish, and decide.
 
 ## Why Cerno
 
@@ -91,7 +69,7 @@ The objective is not to summarize everything. It is to decide what deserves deep
 
 Cerno produces a concise briefing organized around your active work rather than an infinite feed.
 
-A **Focus Thread is context, not a feed**. One bounded Research Run can publish one canonical briefing. The global **Briefing Desk** is simply a cross-thread library of those documents; Focus Thread pages link to the same outputs rather than maintaining duplicate content streams. Cerno does not manufacture a Daily Brief merely because another day has passed.
+A **Focus Thread is context, not a feed**. Each bounded Research Run publishes one canonical briefing, while the **Briefing Desk** collects those documents across threads. Cerno does not manufacture a daily brief merely because another day has passed.
 
 A briefing can include:
 
@@ -249,4 +227,4 @@ The earlier [`prototype/`](prototype/) remains a fixture-only design artifact an
 
 ## Status
 
-The complete single-user workflow runs locally against live services. Public deployment still requires connecting `app/` to a Convex cloud project; authentication and the VideoDB evidence lane remain intentionally outside the current cut.
+The complete single-user workflow runs locally against live services. LinkUp discovers sources, VideoDB resolves one selected long-form video into timestamped transcript evidence and a playable moment, and Hermes delegates review. Public deployment still requires connecting `app/` to a Convex cloud project; authentication remains outside the current cut.
