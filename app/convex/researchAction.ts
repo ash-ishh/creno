@@ -19,15 +19,14 @@ const HERMES_DEFAULT_URL = "https://cerno-hermes-74d2dc62.eastus.cloudapp.azure.
 function normalizeCandidateKey(value: unknown) {
   if (typeof value !== "string") return value;
   const key = value.trim().toUpperCase();
-  const match = key.match(/^C\s*0*(\d+)(?:\s*[-_.]\s*\d+)?$/)
-    ?? key.match(/^C\s*[-_:#]\s*0*(\d+)$/)
-    ?? key.match(/^(?:CANDIDATE|SOURCE)\s*[-_:#]?\s*0*(\d+)(?:\s*[-_.]\s*\d+)?$/);
+  const match = key.match(/^C\s*[-_:#]?\s*0*(\d+)/)
+    ?? key.match(/^(?:CANDIDATE|SOURCE)\s*[-_:#]?\s*0*(\d+)/);
   return match ? `C${Number(match[1])}` : key;
 }
 
 const candidateKeySchema = z.preprocess(
   normalizeCandidateKey,
-  z.string().regex(/^C[1-9]\d*$/),
+  z.string().trim().min(1).max(120),
 );
 
 const findingSchema = z.object({
@@ -284,6 +283,7 @@ ${sourceBlock}
 
 PUBLICATION CONTRACT
 - Search metadata is not evidence. Use only text inside the <source> blocks.
+- candidateKey must be exactly the source id (for example C1 or C2). If multiple findings come from C2, use C2 for each; never create suffixes such as C2-1 or C2-topic.
 - evidenceQuote must be one exact, contiguous substring copied character-for-character from that source. Do not remove markdown markers, alter punctuation, or use ellipses.
 - For a videodb_transcript source, copy only spoken text from inside one timestamped line; do not include the [start–end] prefix. Use section exact_moment.
 - A claim must not exceed what its exact quote supports.
